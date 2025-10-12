@@ -4,6 +4,7 @@ using namespace std;
 
 class Student
 {
+
   string name;
   int age,roll_number;
   char grade;
@@ -12,9 +13,8 @@ class Student
 
 int main()
 {
-  string name;
-  int age,roll_number;
-  char grade;
-
-  cin>>name>>age>>roll_number>>grade;
+  // Not accesible like this as by default it have private in it as access modifier
+  // Student s1;
+  // s1.name = "Pratham";
+  // s1.age="";
 }

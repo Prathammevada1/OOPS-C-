@@ -9,24 +9,29 @@ class Customer
   string name;
   int accnum;
   int balance;
+// Copy constructor
 
-  int *roi;
-// default constructor  
   Customer()
   {
-    roi = new int[100];
+    name="pratham";
+    accnum = 1234;
+    balance =1000;
   }
-  // Construtor is also used to gather resource like in real time we need an 100 size arr space
-  // we define it in constructor if not the code should terminate
-  // here roi demands space in heap  if space was not available it should have terminated program
-  
+  Customer(Customer b)//it does not works cause we are copying c1 into b for which c1 tries to
+  // call copy const and again calls this customer (customer b) which goes into infinite loop.
+  {
+    name = b.name;
+    accnum = b.accnum;
+    balance = b.balance;
+  }
+
 };
 
 int main()
 {
-  Customer c1("Pratham",123,1000);
-  cout<<c1.balance;
+  Customer c1;
+  Customer c2(c1);
+  
 }
-// this is a pointer pointing to the current object c1 
 
 

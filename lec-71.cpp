@@ -17,8 +17,9 @@ class Customer
     accnum = 1234;
     balance =1000;
   }
-  Customer(Customer b)//it does not works cause we are copying c1 into b for which c1 tries to
+  Customer(Customer &b)//it does not works cause we are copying c1 into b for which c1 tries to
   // call copy const and again calls this customer (customer b) which goes into infinite loop.
+  // To solve it we use pass by reference instead so no copying comes in between.
   {
     name = b.name;
     accnum = b.accnum;

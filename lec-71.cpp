@@ -32,6 +32,11 @@ int main()
 {
   Customer c1;
   Customer c2(c1);
+
+  Customer c3;
+  c3=c1;
+  // Assignment operator (used for copying)
+
   
 }
 

@@ -4,38 +4,32 @@ using namespace std;
 
 class Customer
 {
-// Customer constructor already exists hidden we just override it and make new
-  public:
+//  Destructors-Last function called before destroying function
   string name;
-  int accnum;
-  int balance;
-// Copy constructor
+  int *data;
 
-  Customer()
-  {
-    name="pratham";
-    accnum = 1234;
-    balance =1000;
+  public:
+  Customer(){
+
+    name= "Pratham";
+    data = new int;
+    *data = 10;
+    cout<<"const is called";
+
   }
-  Customer(Customer &b)//it does not works cause we are copying c1 into b for which c1 tries to
-  // call copy const and again calls this customer (customer b) which goes into infinite loop.
-  // To solve it we use pass by reference instead so no copying comes in between.
-  {
-    name = b.name;
-    accnum = b.accnum;
-    balance = b.balance;
+  ~Customer(){
+    delete data;
+    cout<<"dest is called\n";
   }
 
+// destructor just release the memory in heap cause the stack will be empty as soon as main 
+// function is over so data->memory space with value as 10 and destructor release the space
+// IT DOES NOT DESTROY THE OBJECT.
 };
 
 int main()
 {
-  Customer c1;
-  Customer c2(c1);
-
-  Customer c3;
-  c3=c1;
-  // Assignment operator (used for copying)
+  Customer a1;
 
   
 }

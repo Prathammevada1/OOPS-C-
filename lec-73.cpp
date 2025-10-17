@@ -19,15 +19,21 @@ class Student:protected Human//Inheritance
   // private string name;
   // private int age;
 
-
+  public:
+  void a(string naming)
+  {
+    name=naming;
+    cout<<name;
+  }
 };
 
 int main()
 {
 
   Student s;
-  s.age;
-
+  s.a("Pratham");
+// This works as the protected + public = public but we use variable inside the class only so..
 }
+
 // Access modifiers
 // private>protected>public

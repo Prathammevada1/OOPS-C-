@@ -13,6 +13,10 @@ class Human
     this->name = name;
     this->age = age;
   }
+  void display()
+  {
+    cout<<name<<"hi";
+  }
  
 };
 
@@ -25,12 +29,17 @@ class Student:public Human
     this->roll = roll;
     cout<<roll<<" "<<name<<" "<<age;
   }
+  void display()
+  {
+    cout<<name;
+  }
 
 };
 
 int main()
 {
   Student s("Pratham",20,104);
+  s.display();
 }
-// Third commit
-// To initialize in parent constructor and use it in child line 23
+// Fourth Commit
+// which method runs if method in child child one or else parent one

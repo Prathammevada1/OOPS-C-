@@ -8,38 +8,29 @@ class Human
   int age;
 
   public:
-  Human()
+  Human(string name,int age)
   {
-    cout<<"Hi human\n";
+    this->name = name;
+    this->age = age;
   }
-  ~Human()
-  {
-    cout<<"hi human de\n";
-  }
-  
-  void work()
-  {
-    cout<<"Working";
-  }
+ 
 };
 
 class Student:public Human
 { 
   int roll;
   public:
-  Student()
+  Student(string name,int age,int roll):Human(name,age)
   {
-    cout<<"hi student\n";
+    this->roll = roll;
+    cout<<roll<<" "<<name<<" "<<age;
   }
-  ~Student()
-  {
-    cout<<"hi student de\n";
-  }
+
 };
 
 int main()
 {
-  Student s;
+  Student s("Pratham",20,104);
 }
-// Second commit
-// Constructor and destructor calling
+// Third commit
+// To initialize in parent constructor and use it in child line 23

@@ -7,11 +7,16 @@ class Human
   string name;
   int age;
 
+  public:
   Human()
   {
-
+    cout<<"Hi human\n";
   }
-  public:
+  ~Human()
+  {
+    cout<<"hi human de\n";
+  }
+  
   void work()
   {
     cout<<"Working";
@@ -21,13 +26,20 @@ class Human
 class Student:public Human
 { 
   int roll;
+  public:
+  Student()
+  {
+    cout<<"hi student\n";
+  }
+  ~Student()
+  {
+    cout<<"hi student de\n";
+  }
 };
 
 int main()
 {
   Student s;
-  s.work();
 }
-// First commit
-// Here we see method is a public type which means we can directly access it from student object
-// 
+// Second commit
+// Constructor and destructor calling

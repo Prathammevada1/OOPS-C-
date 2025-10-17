@@ -22,15 +22,14 @@ class Customer
     cout<<"dest is called\n";
   }
 
-// destructor just release the memory in heap cause the stack will be empty as soon as main 
-// function is over so data->memory space with value as 10 and destructor release the space
-// IT DOES NOT DESTROY THE OBJECT.
+
 };
 
 int main()
 {
   Customer a1;
-
+// Imp Customer a1,a2,a3 the a1 constructor is called first and a3 last but a3 destructor
+// is called first as it is at top of the stack
   
 }
 

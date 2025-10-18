@@ -1,45 +1,35 @@
 #include<iostream>
 using namespace std;
 
-class Human
+class GrandDad
 {
-  protected:
-  string name;
-  int age;
-
   public:
-  Human(string name,int age)
-  {
-    this->name = name;
-    this->age = age;
-  }
-  void display()
-  {
-    cout<<name<<"hi";
-  }
- 
+  int a=10;
 };
-
-class Student:public Human
-{ 
-  int roll;
+class Dad:public GrandDad
+{
   public:
-  Student(string name,int age,int roll):Human(name,age)
-  {
-    this->roll = roll;
-    cout<<roll<<" "<<name<<" "<<age;
-  }
   void display()
   {
-    cout<<name;
+    cout<<a<<"\n";
+  }
+};
+class Son:public Dad
+{
+  public:
+  void display(){
+  cout<<a;
   }
 
 };
+
 
 int main()
 {
-  Student s("Pratham",20,104);
+  Dad d;
+  d.display();
+  Son s;
   s.display();
 }
-// Fourth Commit
-// which method runs if method in child child one or else parent one
+// Multilevel-Inheritance
+// One inherit other and gives it to the next one to inherit and goes on...

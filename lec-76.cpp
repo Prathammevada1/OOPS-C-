@@ -1,54 +1,74 @@
 #include <iostream>
+
 using namespace std;
+
+class Exception
+{
+  protected:
+  string msg;
+
+  public:
+
+  Exception(string msg)
+  {
+    this->msg = msg;
+  }
+
+  string what()
+  {
+    return msg;
+  }
+};
+
+class Runtime_error:public Exception
+{
+  Runtime_error(const string &msg):Exception(msg)
+  {
+
+  }
+};
+
+//this might what it would look like
+// throw the object of runtime() constructor is called and it calls exception
+// constructor and msg value is allocated and it is catch at const runtime_error &e
+// here in e the object comes and e.what() prints msg in e
 
 class Customer
 {
-  string name;
-  int balance,acc_num;
+  int balance;
+
   public:
-
-  Customer(string name,int balance,int acc_num)
+  Customer(int balance)
   {
-    this->name=name;
     this->balance=balance;
-    this->acc_num=acc_num;
-  }
-
-  void deposit(int amount)
-  {
-      if(amount>0)
-      {
-        balance+=amount;
-        cout<<"Amount credited\n";
-      }
-      else
-      {
-        throw "Invalid deposited amount";//if throw runs it terminate and doesnt run rest of the method
-      }
   }
 
   void withdraw(int amount)
   {
-      if(amount>0&&amount<balance)
-      {
-        balance-=amount;
-        cout<<"Debited credited\n";
-      }
+    if(amount<0)
+    throw runtime_error("Cant withdraw");
+    
   }
-
-
 };
+
+
+
 
 int main()
 {
-  Customer c1("Pratham",5000,10);
-  try
+
+  Customer c1(1000);
+  try{
+    c1.withdraw(-100);
+  }catch(const runtime_error &e)//here the object is received throw runtime_error("")
   {
-    c1.deposit(100);
-    c1.deposit(-100);
-    c1.withdraw(-100);//never reached as before it the exception is handled
-  }catch(const char *e)
-  {
-    cout<<"Exception "<<e;
+    cout<<e.what();
   }
+  catch(...)
+  {
+
+  }
+  // default catch
+
 }
+//what exception class looks like roughly

@@ -1,35 +1,70 @@
 #include<iostream>
 using namespace std;
 
-class GrandDad
+class Engineer
 {
   public:
-  int a=10;
+  string specialization;
+
+
+  Engineer()
+  {
+    cout<<"Engineer"<<"\n";
+  }
+
+  void work()
+  {
+    cout<<"Specialization:"<<specialization<<"\n";
+  }
 };
-class Dad:public GrandDad
+
+class Youtuber
 {
   public:
+  int subscribers;
+
+  Youtuber(int sub)
+  {
+    subscribers=sub;
+    cout<<"Youtuber with " <<subscribers;
+  }
+
+  void subscribe()
+  {
+    cout<<"Specialization:"<<subscribers<<"\n";
+  }
+
+};
+
+class Student:public Engineer,public Youtuber
+{
+  public:
+
+  Student(int sub):Youtuber(sub)
+  {
+
+  }
+
   void display()
   {
-    cout<<a<<"\n";
+    work();
+    subscribe();
   }
 };
-class Son:public Dad
-{
-  public:
-  void display(){
-  cout<<a;
-  }
-
-};
-
 
 int main()
 {
-  Dad d;
-  d.display();
-  Son s;
-  s.display();
+  Student s(1000);
 }
-// Multilevel-Inheritance
-// One inherit other and gives it to the next one to inherit and goes on...
+// Constructor is called in order of inheritance and to call one with parameter and other without
+// checkout line 43
+// class D : public A, public B, public C {
+// public:
+    // D’s constructor calls:
+    //   A()   → default
+    //   B(x)  → one parameter
+    //   C(x, y) → two parameters
+//     D(int x, int y) : A(), B(x), C(x, y) {
+//         cout << "D(" << x << ", " << y << ") called\n";
+//     }
+// };

@@ -1,23 +1,27 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 using namespace std;
 
 
 
 int main()
 {
-  ifstream fin;
-  fin.open("zoom.txt");
-  char c;
-  c=fin.get();//now space is traeted is character
-  ;//pointer type Takes H first 
-  // Hello India space is ignored 
-  while(!fin.eof())
+  vector<int>arr(5);
+  cout<<"Enter:";
+  
+  for(int i=0;i<5;i++)
   {
-    cout<<c;
-    c=fin.get();//pointer moves ahead
+    cin>>arr[i];
   }
-  fin.close();
+
+  ofstream fout;
+
+  fout.open("zero.txt");
+  for(int i=0;i<5;i++)
+  fout<<arr[i]<<" ";
+
+  fout.close();
 }
 
 

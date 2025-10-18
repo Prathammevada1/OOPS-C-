@@ -2,6 +2,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 class Exception
 {
   protected:
@@ -49,6 +50,23 @@ class Customer
     throw runtime_error("Cant withdraw");
     
   }
+=======
+class exception
+{
+  protected:
+  string msg;
+
+  public:
+
+  exception(string msg)
+  {
+    this->msg = msg;
+  }
+
+  string what()
+  {
+    return msg;
+  }
 };
 
 
@@ -56,6 +74,7 @@ class Customer
 
 int main()
 {
+<<<<<<< HEAD
 
   Customer c1(1000);
   try{
@@ -69,6 +88,17 @@ int main()
 
   }
   // default catch
+=======
+  try
+  {
+    int *p=new int[100000000000000];
+    delete []p;
+  }catch(const bad_alloc &e)
+  {
+    cout<<"Exception occur due to line 9 "<<e.what();
+
+  }
+>>>>>>> c9de8c47886cfa38acc885ad0c40a82dfc6f3839
 
 }
 //what exception class looks like roughly

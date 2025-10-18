@@ -1,70 +1,51 @@
 #include<iostream>
 using namespace std;
 
-class Engineer
+class Human
 {
   public:
-  string specialization;
+  string name;
 
-
-  Engineer()
+  Human(string name)
   {
-    cout<<"Engineer"<<"\n";
-  }
-
-  void work()
-  {
-    cout<<"Specialization:"<<specialization<<"\n";
+    this->name=name;
   }
 };
 
-class Youtuber
+class Student:public Human
 {
+  int roll;
+
   public:
-  int subscribers;
-
-  Youtuber(int sub)
+  Student(string name,int roll):Human(name) 
   {
-    subscribers=sub;
-    cout<<"Youtuber with " <<subscribers;
-  }
-
-  void subscribe()
-  {
-    cout<<"Specialization:"<<subscribers<<"\n";
+    this->roll=roll;
+    cout<<name<<" "<<roll<<"\n";
   }
 
 };
 
-class Student:public Engineer,public Youtuber
+
+class Teacher:public Human
 {
+  int salary;
+
   public:
-
-  Student(int sub):Youtuber(sub)
+  Teacher(string name,int salary):Human(name)
   {
-
+    this->salary=salary;
+    cout<<name<<" "<<salary<<"\n";
   }
 
-  void display()
-  {
-    work();
-    subscribe();
-  }
 };
+
 
 int main()
 {
-  Student s(1000);
+  Teacher t("Pratham",10000);
+  Student s("Ansh",10);
 }
-// Constructor is called in order of inheritance and to call one with parameter and other without
-// checkout line 43
-// class D : public A, public B, public C {
-// public:
-    // D’s constructor calls:
-    //   A()   → default
-    //   B(x)  → one parameter
-    //   C(x, y) → two parameters
-//     D(int x, int y) : A(), B(x), C(x, y) {
-//         cout << "D(" << x << ", " << y << ") called\n";
-//     }
-// };
+// Hierarchical INheritance
+// One class inherited by many 
+// Like Human is inherited by student,teacher,employee etc
+

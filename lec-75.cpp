@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Animal
@@ -20,34 +21,33 @@ class Dog:public Animal
 
 };
 
+class Cat:public Animal
+{
+  public:
+  void speak()
+  {
+    cout<<"Meow\n";
+  }
+
+};
+
 int main()
 {
   Animal *p;
-  p = new Dog();
+  vector<Animal*> animals;
 
-  
+  animals.push_back(new Dog());
+  animals.push_back(new Cat());
+  animals.push_back(new Animal());
+  animals.push_back(new Dog());
 
+  for(int i=0;i<animals.size();i++)
+  {
+    p = animals[i];
+    p->speak();
+  }
 
-  // Here new Dog () returns an address to pointer p for the dog object
-  // dog object contains animals attributes vpointer dog attributes space
-  // when virtual keyword is not used the pointer points to animal part of
-  // dog objects to run method but when virtual is written it goes for runtime to decide
-  // what to run so 
-  // p is declared as a pointer to Animal.
-
-//  new Dog() allocates a Dog object on the heap and returns a Dog*.
-
-// Because Dog is an Animal (inheritance), C++ allows assigning a Dog* to an Animal*.
-
-// So the pointer p itself stores the address of the Dog object, but its type is Animal*.
-  // p (Animal*) --> points to Dog object
-  
-  // cout<<*p;//error as p doesnt have fixed byte like int so compiler doesnt know to print 
+  // decode
 }
-// Not allowed as p is pointing towards animal class and it doesnt have roti function 
 
-
-// Bacially Animal type p pointer point to dog type object 
-// during compile time it decide to run animal method but virtual->runtime it 
-// have a vtable and vpointer made during constructor of dog (every object of that class shares it)
-// and vpointer seraches for the original method from dog and runs it   Dog::speak() 
+ 

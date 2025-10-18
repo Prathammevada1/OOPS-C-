@@ -12,7 +12,14 @@ class Human
   }
 };
 
-class Student:public Human
+class A
+{
+  int propA;
+
+  
+};
+
+class Student:public Human,public A
 {
   int roll;
 
@@ -42,10 +49,8 @@ class Teacher:public Human
 
 int main()
 {
-  Teacher t("Pratham",10000);
-  Student s("Ansh",10);
+  
 }
-// Hierarchical INheritance
-// One class inherited by many 
-// Like Human is inherited by student,teacher,employee etc
+// Hybrid INheritance
+// Multiple+hybrid 
 

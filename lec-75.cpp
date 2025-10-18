@@ -42,3 +42,44 @@ int main()
 // compile time and runtime polymorphsim
 
 // compile-1.method overloading ,2.operator overloading
+// Arithmetic: +, -, *, /, %
+
+
+
+// Assignment: =, +=, -=, etc.
+
+// Comparison: ==, !=, <, >, <=, >=
+
+// Increment / Decrement: ++, --
+
+// Logical: !, &&, || (note: && and || can be overloaded but behave differently because of short-circuiting)
+
+// Bitwise: &, |, ^, ~, <<, >>
+
+// Subscript: []
+
+// Function call: ()
+
+// Member access through pointer: ->
+
+// Comma operator: ,
+
+// Dereference: * (pointer), unary *
+
+// New / Delete: new, delete, new[], delete[]
+
+// concept to remember[
+
+// // int x = 10, y = 20;
+// const int *ptr = &x; // pointer to const value
+
+// //*ptr = 15; // ❌ Error: cannot modify value through pointer
+// ptr = &y;     // ✅ Allowed: pointer can point elsewhere
+
+// // int x = 10;
+// int * const ptr = &x; // const pointer to value
+
+// *ptr = 20;  // ✅ Allowed: modify the value
+// int y = 30;
+// //ptr = &y; // ❌ Error: cannot change pointer
+// ]

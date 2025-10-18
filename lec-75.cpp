@@ -17,16 +17,17 @@ class Dog:public Animal
   {
     cout<<"Bark\n";
   }
+
+  void roti()
+  {
+    cout<<"Hello\n";
+  }
 };
 
 int main()
 {
   Animal *p;
   p=new Dog();
-  p->speak();   
+  p->roti();   
 }
-//virtual keyword 
-// normal flow without virtual keyword 
-// during compile time its decided to run speak of animal 
-// If virtual keyword is added then it decides at runtime so p stores address of dog and runs
-// speak of Dog
+// Not allowed as p is pointing towards animal class and it doesnt have roti function 

@@ -1,60 +1,36 @@
 #include <iostream>
+
 using namespace std;
 
-// class Customer
-// {
-//   string name;
-//   int balance,acc_num;
-//   public:
+class exception
+{
+  protected:
+  string msg;
 
-//   Customer(string name,int balance,int acc_num)
-//   {
-//     this->name=name;
-//     this->balance=balance;
-//     this->acc_num=acc_num;
-//   }
+  public:
 
-//   void deposit(int amount)
-//   {
-//       if(amount>0)
-//       {
-//         balance+=amount;
-//         cout<<"Amount credited\n";
-//       }
-//       else
-//       {
-//         throw "Invalid deposited amount";//if throw runs it terminate and doesnt run rest of the method
-//       }
-//   }
+  exception(string msg)
+  {
+    this->msg = msg;
+  }
 
-//   // void withdraw(int amount)
-//   // {
-//   //     if(amount>0&&amount<balance)
-//   //     {
-//   //       balance-=amount;
-//   //       cout<<"Debited credited\n";
-//   //     }
-//   // }
-
-
-// };
+  string what()
+  {
+    return msg;
+  }
+};
 
 int main()
 {
-
-
-  int a,b;
-  cin>>a>>b;
-  try{
-    if(b==0)
-    throw "Cant divide by zero";
-    int c=a/b;
-    cout<<c;
-    
-  }catch(const char *e)
+  try
   {
-    cout<<e;
+    int *p=new int[100000000000000];
+    delete []p;
+  }catch(const bad_alloc &e)
+  {
+    cout<<"Exception occur due to line 9 "<<e.what();
+
   }
 
-  return 0; 
 }
+//what exception class looks like roughly

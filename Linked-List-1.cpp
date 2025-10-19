@@ -13,80 +13,43 @@ class Node
     next=NULL;
   }
 
-  void insertAtFirst()
-  {
-
-  }
 };
+
+Node* CreatedLinkedList(int arr[],int index,int size)
+{
+  if(index==size)
+  return NULL;
+
+  Node *temp=new Node(arr[index]);
+  temp->next = CreatedLinkedList(arr,index+1,size);
+  return temp;
+}
+
+Node* CreatedLinkedListInReverse(int arr[],int index,int size,Node *prev_temp)
+{
+  if(index==size)
+  return prev_temp;
+
+  Node *temp=new Node(arr[index]);
+  temp->next = prev_temp;
+  return CreatedLinkedListInReverse(arr,index+1,size,temp);
+  
+}
+
+// You can also just start from the end of array
 
 int main()
 {
-  Node *Head;
-  Head = NULL;
-
-  int arr[]={2,4,6,8,10};
-
-  //INsertion at beginning
-
-  // Linked List doesnt exist
-  for(int i=0;i<5;i++)
-  {
-    if(Head==NULL)
-    {
-      Head=new Node(arr[i]);
-    }
-    //Linked list exist
-    
-    else
-    {
-      Node *temp=new Node(arr[i]);
-      temp->next = Head;
-      Head=temp;
-    }
-  }
+  int arr[]={2,3,4,5,6};
+  // Node *Head = CreatedLinkedList(arr,0,5);
+  Node *Head = CreatedLinkedListInReverse(arr,0,5,NULL);
 
   
-
-  // Insertion at the end
-
- 
-  //If linked list is empty
-
-  if(Head==NULL)
+  Node *temp;
+  temp=Head;
+  while(temp)
   {
-      Head=new Node(100);
+    cout<<temp->data<<" ";
+    temp=temp->next;
   }
-  else
-  {
-    Node *temp = Head;
-
-    while(temp->next != NULL)
-    {
-      temp=temp->next;
-    } 
-
-    Node *temp1 = new Node(1000);
-    temp->next = temp1;
-  }
-  Node *a1 = Head;
-
-  while(a1)
-  {
-    cout<<a1->data<<" ";
-    a1=a1->next;
-  }
-  //He used tail as pointer to keep track of the last element
-
-  // Node *Head,*Tail;
-  // Tail=Head=NULL;
-
-  // if empty
-  //Head=NULL 
-  // Head = new Node(arr[i])
-  // Head = Tail
-
-  // else
-  // Node *temp = new Node(arr[i])
-  // Use Temp->next = new Node(arr[i]) instead 
-  // Tail = Tail->Next;
 }
